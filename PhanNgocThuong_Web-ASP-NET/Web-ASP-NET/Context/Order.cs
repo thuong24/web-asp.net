@@ -16,9 +16,9 @@ namespace Web_ASP_NET.Context
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int ProductId { get; set; }
-        public double Price { get; set; }
+        public int UserId { get; set; }
         public int Status { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
+        public Nullable<System.DateTime> UpdatedAt { get; set; }
     }
 }

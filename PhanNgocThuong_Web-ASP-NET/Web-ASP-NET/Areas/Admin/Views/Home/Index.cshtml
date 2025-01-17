@@ -1,7 +1,279 @@
-﻿
+﻿@model IEnumerable<Web_ASP_NET.Context.Product>
+
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Admin</h2>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Thống kê doanh thu</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="@Url.Action("Index", "Home")">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Quản lý</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <div class="d-flex justify-content-between">
+                                <h3 class="card-title">Khách truy cập cửa hàng trực tuyến</h3>
+                                <a href="javascript:void(0);">Xem báo cáo</a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <p class="d-flex flex-column">
+                                    <span class="text-bold text-lg">820</span>
+                                    <span>Khách truy cập theo thời gian</span>
+                                </p>
+                                <p class="ml-auto d-flex flex-column text-right">
+                                    <span class="text-success">
+                                        <i class="fas fa-arrow-up"></i> 12.5%
+                                    </span>
+                                    <span class="text-muted">Kể từ tuần trước</span>
+                                </p>
+                            </div>
+                            <!-- /.d-flex -->
+
+                            <div class="position-relative mb-4">
+                                <canvas id="visitors-chart" height="200"></canvas>
+                            </div>
+
+                            <div class="d-flex flex-row justify-content-end">
+                                <span class="mr-2">
+                                    <i class="fas fa-square text-primary"></i> Tuần này
+                                </span>
+
+                                <span>
+                                    <i class="fas fa-square text-gray"></i> Tuần trước
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <h3 class="card-title">Sản phẩm</h3>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-tool btn-sm">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="btn btn-tool btn-sm">
+                                    <i class="fas fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-striped table-valign-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Tên</th>
+                                        <th>Giá</th>
+                                        <th>Sales</th>
+                                        <th>Hơn</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img src="~/content/admin/dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                            Một số sản phẩm
+                                        </td>
+                                        <td>$13 USD</td>
+                                        <td>
+                                            <small class="text-success mr-1">
+                                                <i class="fas fa-arrow-up"></i>
+                                                12%
+                                            </small>
+                                            12,000 Sold
+                                        </td>
+                                        <td>
+                                            <a href="#" class="text-muted">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="~/content/admin/dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                            Sản phẩm khác
+                                        </td>
+                                        <td>$29 USD</td>
+                                        <td>
+                                            <small class="text-warning mr-1">
+                                                <i class="fas fa-arrow-down"></i>
+                                                0.5%
+                                            </small>
+                                            123,234 Sold
+                                        </td>
+                                        <td>
+                                            <a href="#" class="text-muted">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="~/content/admin/dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                            Sản phẩm tuyệt vời
+                                        </td>
+                                        <td>$1,230 USD</td>
+                                        <td>
+                                            <small class="text-danger mr-1">
+                                                <i class="fas fa-arrow-down"></i>
+                                                3%
+                                            </small>
+                                            198 Sold
+                                        </td>
+                                        <td>
+                                            <a href="#" class="text-muted">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <img src="~/content/admin/dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                                            Mặt hàng hoàn hảo
+                                            <span class="badge bg-danger">NEW</span>
+                                        </td>
+                                        <td>$199 USD</td>
+                                        <td>
+                                            <small class="text-success mr-1">
+                                                <i class="fas fa-arrow-up"></i>
+                                                63%
+                                            </small>
+                                            87 Sold
+                                        </td>
+                                        <td>
+                                            <a href="#" class="text-muted">
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col-md-6 -->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <div class="d-flex justify-content-between">
+                                <h3 class="card-title">Sales</h3>
+                                <a href="javascript:void(0);">
+                                    Xem báo cáo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <p class="d-flex flex-column">
+                                    <span class="text-bold text-lg">$18,230.00</span>
+                                    <span>Bán hàng theo thời gian</span>
+                                </p>
+                                <p class="ml-auto d-flex flex-column text-right">
+                                    <span class="text-success">
+                                        <i class="fas fa-arrow-up"></i> 33.1%
+                                    </span>
+                                    <span class="text-muted">Kể từ tháng trước</span>
+                                </p>
+                            </div>
+                            <!-- /.d-flex -->
+
+                            <div class="position-relative mb-4">
+                                <canvas id="sales-chart" height="200"></canvas>
+                            </div>
+
+                            <div class="d-flex flex-row justify-content-end">
+                                <span class="mr-2">
+                                    <i class="fas fa-square text-primary"></i> Năm nay
+                                </span>
+
+                                <span>
+                                    <i class="fas fa-square text-gray"></i> Năm ngoái
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+
+                    <div class="card">
+                        <div class="card-header border-0">
+                            <h3 class="card-title">Tổng quan về cửa hàng trực tuyến</h3>
+                            <div class="card-tools">
+                                <a href="#" class="btn btn-sm btn-tool">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <a href="#" class="btn btn-sm btn-tool">
+                                    <i class="fas fa-bars"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                                <p class="text-success text-xl">
+                                    <i class="ion ion-ios-refresh-empty"></i>
+                                </p>
+                                <p class="d-flex flex-column text-right">
+                                    <span class="font-weight-bold">
+                                        <i class="ion ion-android-arrow-up text-success"></i> 12%
+                                    </span>
+                                    <span class="text-muted">TỶ LỆ CHUYỂN ĐỔI</span>
+                                </p>
+                            </div>
+                            <!-- /.d-flex -->
+                            <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                                <p class="text-warning text-xl">
+                                    <i class="ion ion-ios-cart-outline"></i>
+                                </p>
+                                <p class="d-flex flex-column text-right">
+                                    <span class="font-weight-bold">
+                                        <i class="ion ion-android-arrow-up text-warning"></i> 0.8%
+                                    </span>
+                                    <span class="text-muted">TỶ LỆ BÁN HÀNG</span>
+                                </p>
+                            </div>
+                            <!-- /.d-flex -->
+                            <div class="d-flex justify-content-between align-items-center mb-0">
+                                <p class="text-danger text-xl">
+                                    <i class="ion ion-ios-people-outline"></i>
+                                </p>
+                                <p class="d-flex flex-column text-right">
+                                    <span class="font-weight-bold">
+                                        <i class="ion ion-android-arrow-down text-danger"></i> 1%
+                                    </span>
+                                    <span class="text-muted">TỶ LỆ ĐĂNG KÝ</span>
+                                </p>
+                            </div>
+                            <!-- /.d-flex -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+</div>
 

@@ -10,5 +10,6 @@ namespace Web_ASP_NET.Models
     {
         public List<Product> ListProduct { get; set; }
         public List<Category> ListCategory { get; set; }
+        public List<Brand> ListBrand { get; set; }
     }
 }

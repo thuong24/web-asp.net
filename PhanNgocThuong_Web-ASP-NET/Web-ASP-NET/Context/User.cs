@@ -21,5 +21,8 @@ namespace Web_ASP_NET.Context
         public string Password { get; set; }
         public Nullable<bool> IsAdmin { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
+        public string DisplayName { get; set; }
+        public string Provider { get; set; }
+        public string FirebaseUid { get; set; }
     }
 }

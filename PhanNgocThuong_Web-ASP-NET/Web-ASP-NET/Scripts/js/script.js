@@ -5,7 +5,7 @@ $(document).ready(function () {
     console.log("Countdown script loaded!"); // Đặt log để kiểm tra file đúng
 
     // Countdown logic
-    const countdownDate = new Date("2024-12-31T23:59:59").getTime();
+    const countdownDate = new Date("2025-01-30T23:59:59").getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
@@ -33,6 +33,7 @@ $(document).ready(function () {
     updateCountdown(); // Khởi chạy ngay khi DOM load
 	// jQuery code
 
+    
   // var html_download = '<a href="http://bootstrap-ecommerce.com/templates.html" class="btn btn-dark rounded-pill" style="font-size:13px; z-index:100; position: fixed; bottom:10px; right:10px;">Download theme</a>';
   //  $('body').prepend(html_download);
     

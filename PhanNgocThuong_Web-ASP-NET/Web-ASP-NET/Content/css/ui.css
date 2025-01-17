@@ -1,4 +1,4 @@
-/* ==== BASE STYLES ====*/
+﻿/* ==== BASE STYLES ====*/
 /* ==================== GLOBAL STYLES ======================= */
 @import url("https://rsms.me/inter/inter.css");
 html {
@@ -421,11 +421,25 @@ p:last-child {
   color: #969696; }
   .header-top-light .nav-link:hover {
     color: #212529; }
-
 .header-main {
+    position: fixed; /* Cố định header */
+    top: 0; /* Đặt header ở đầu trang */
+    left: 0;
+    width: 100%; /* Đảm bảo header bao phủ toàn màn hình */
+    z-index: 1000; /* Đặt z-index cao để header nổi trên nội dung khác */
+    background-color: white; /* Đặt nền trắng để header nổi bật */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+body {
+    padding-top: 100px; /* Khoảng trống tương ứng với chiều cao của header-main */
+}
+/*.header-main {
   position: relative;
   padding-top: 1rem;
-  padding-bottom: 1rem; }
+  padding-bottom: 1rem; }*/
 
 .brand-wrap .logo, .navbar-brand .logo {
   margin-right: 7px;
@@ -1276,3 +1290,54 @@ body {
   display: block; }
 
 /*# sourceMappingURL=ui.css.map */
+#qrModal .modal-dialog {
+    max-width: 620px; /* Đặt chiều rộng tối đa nhỏ hơn */
+    max-height: 320px; /* Đặt chiều rộng tối đa nhỏ hơn */
+    margin: 1.75rem auto;
+}
+
+#qrModal .modal-content {
+    padding: 15px; /* Thêm padding nếu cần */
+}
+
+#qrModal img#qrImage {
+    max-width: 250px; /* Đảm bảo ảnh không vượt quá chiều rộng modal */
+    height: auto; /* Đảm bảo tỉ lệ hình ảnh không bị méo */
+}
+
+#qrModal .modal-header,
+#qrModal .modal-footer {
+    padding: 10px; /* Giảm khoảng cách giữa các phần */
+}
+/*Search frontend*/
+#search-results {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.list-group-item a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.list-group-item a:hover {
+    text-decoration: underline;
+}
+
+/*Search admin*/
+#searchResults .dropdown-header {
+    font-weight: bold;
+    color: #333;
+    margin: 5px 10px;
+}
+
+#searchResults .dropdown-item {
+    padding: 5px 10px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+    #searchResults .dropdown-item:hover {
+        background-color: #f8f9fa;
+    }
+
